@@ -23,7 +23,7 @@ def test_prime_factorize_by_primes_table_elapsed_time(n, primes):
 
 def test_prime_factorize_by_mpf_elapsed_time(n):
     start = time.time()
-    print(f"{n}:{pf.prime_factorize_by_mpf(n)}")
+    print(f"{n}:{pf.prime_factorize_by_mpfs(n)}")
     end = time.time()
     print(f"prime_factorize_by_mpf elapsed time: {end - start}")
 
@@ -46,5 +46,16 @@ def test_find_primes_elapsed_time(find_primes_f, n):
 # test_find_primes_elapsed_time(utils.find_primes, sqrtn)
 # test_find_primes_elapsed_time(utils.find_primes_by_sieve, sqrtn)
 
-n = (2 ** 128) - 1
-test_prime_factorize_by_mpf_elapsed_time(n)
+# n = (2 ** 128) - 1
+# test_prime_factorize_by_mpf_elapsed_time(n)
+
+# n = 991 * 997
+# p, q = pf.prime_factorize_by_shor(n)
+# print(f"{n} = {p} x {q}")
+
+# test_find_primes_elapsed_time(pf.prime_factorize_by_shor, n)
+
+n = 3 * 5
+p, q, qc = pf.prime_factorize_by_qc(n)
+print(n, '=', p, '*', q)
+qc.draw()
